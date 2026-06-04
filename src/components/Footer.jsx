@@ -15,7 +15,7 @@ const Footer = () => {
           transition={{ duration: 0.5 }}
           className="text-gray-400 text-sm font-thin"
         >
-          © {currentYear} Arpit. All rights reserved.
+          © {currentYear} SUMIT. All rights reserved.
         </motion.p>
 
         {/* Right side - Social Links */}
