@@ -1,96 +1,207 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import video1 from "../assets/video-1.mp4";
 
 const Hero = ({ onVideoLoad }) => {
+
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMenuOpen(false); // Close menu on mobile after navigating
+  };
+
   return (
-    <div
+    <section
       id="hero"
-      className="w-[90%] pt-8 sm:pt-14 pb-16 sm:pb-32 border-b-2 border-gray-200 mx-auto"
+      className="relative w-[90%] mx-auto min-h-screen border-b border-zinc-800 overflow-hidden"
     >
-      {/* Section 1: Title */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="w-full"
-      >
-        <p className="text-white text-base sm:text-lg font-thin pl-2">SOFTWARE</p>
-      </motion.div>
+      {/* Background Glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 blur-[120px] rounded-full" />
+      </div>
+
+      {/* Top Label */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
+        transition={{ duration: 0.6 }}
+        className="pt-10 flex justify-between items-center"
       >
-        <h1 className="text-white kanit-extrabold leading-[12vw] sm:leading-[11vw] text-[16vw] sm:text-[16.5vw]">
-          DEVELOPER
-        </h1>
+        <p className="text-white text-sm md:text-lg font-light tracking-widest">
+          SOFTWARE
+        </p>
+
+        <div className="flex items-center gap-2 border border-zinc-700 px-4 py-2 rounded-full">
+          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+          <span className="text-zinc-300 text-sm">
+            Available for Internship
+          </span>
+        </div>
       </motion.div>
 
-      {/* Section 2: Subtext */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
+      {/* Main Heading */}
+      <motion.h1
+        initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-        className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center pt-2 sm:pt-4 cousine"
+        transition={{ duration: 0.8 }}
+        className="
+          text-[16vw]
+          sm:text-[15vw]
+          leading-none
+          font-black
+          tracking-tighter
+          mt-6
+          bg-gradient-to-r
+          from-white
+          via-zinc-400
+          to-white
+          text-transparent
+          bg-clip-text
+        "
       >
-        <p className="text-white text-base sm:text-lg font-thin pl-2 text-center sm:text-left">
-          Based in Madhya Pradesh, India
-        </p>
-        <div className="flex sm:hidden justify-between w-full mt-2">
-          <p className="text-white text-base font-thin text-center">
-            01/<span className="text-gray-400">05</span>
+        DEVELOPER
+      </motion.h1>
+
+      {/* Sub Header */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.4 }}
+        className="flex flex-col md:flex-row justify-between mt-3 text-zinc-400 text-sm md:text-base"
+      >
+        <p>Based in Madhya Pradesh, India</p>
+
+        <div className="flex gap-10 mt-2 md:mt-0">
+          <p>
+            01/<span className="text-zinc-600">05</span>
           </p>
-          <p className="text-white text-base font-thin text-center">
-            Scroll to explore
-          </p>
+          <p>Scroll to explore ↓</p>
         </div>
-        <p className="hidden sm:block text-white text-lg font-thin text-center sm:text-left">
-          01/<span className="text-gray-400">05</span>
-        </p>
-        <p className="hidden sm:block text-white text-lg font-thin text-center sm:text-left">
-          Scroll to explore
-        </p>
       </motion.div>
 
-      {/* Section 3: Content */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-        className="flex flex-col-reverse lg:flex-row justify-between pt-12 sm:pt-20 items-center gap-8 sm:gap-10"
-      >
-        {/* Text Section */}
-        <div className="w-full lg:w-[60%] text-center lg:text-left">
-          <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-relaxed">
-            <span className="text-gray-400 font-thin">
-              Bringing together strategy, creativity{" "}
-              <br className="hidden lg:block" />
-              and technology to
-            </span>{" "}
-            build digital products, websites, and apps that{" "}
-            <br className="hidden lg:block" />
-            make sense to businesses and people.
-          </h1>
-        </div>
-
-        {/* Video Section */}
-        <motion.div 
-          whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.3 }}
-          className="w-full lg:w-[35%] flex justify-center"
+      {/* Content Section */}
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-16 mt-24 pb-24">
+        {/* Left Side */}
+        <motion.div
+          initial={{ opacity: 0, x: -60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.5 }}
+          className="lg:w-[58%]"
         >
+          <h2 className="text-3xl md:text-5xl leading-tight text-white">
+            Building
+            <span className="text-zinc-500 font-light">
+              {" "}
+              scalable web applications,
+            </span>
+            <br />
+            modern digital experiences,
+            <br />
+            and products people
+            <span className="text-zinc-500 font-light">
+              {" "}
+              actually use.
+            </span>
+          </h2>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap gap-4 mt-10">
+            <button className="group px-6 py-3 bg-white text-black rounded-full font-medium hover:scale-105 transition-all duration-300 flex items-center gap-2" onClick={() => scrollToSection("works")}>
+              View Projects
+              <ArrowRight
+                size={18}
+                className="group-hover:translate-x-1 transition"
+              />
+            </button>
+
+            <button className="px-6 py-3 border border-zinc-700 text-white rounded-full hover:bg-white hover:text-black transition-all duration-300" onClick={() => scrollToSection("contacts")}>
+              Contact Me
+            </button>
+          </div>
+
+          {/* Stats */}
+          <div className="flex gap-10 mt-14 flex-wrap">
+            <div>
+              <h3 className="text-3xl font-bold text-white">3+</h3>
+              <p className="text-zinc-500">Projects</p>
+            </div>
+
+            <div>
+              <h3 className="text-3xl font-bold text-white">2+</h3>
+              <p className="text-zinc-500">Years Learning</p>
+            </div>
+
+            <div>
+              <h3 className="text-3xl font-bold text-white">MERN</h3>
+              <p className="text-zinc-500">Primary Stack</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Right Side */}
+        <motion.div
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.7 }}
+          whileHover={{
+            scale: 1.03,
+            rotate: 1,
+          }}
+          className="
+            relative
+            lg:w-[38%]
+            overflow-hidden
+            rounded-3xl
+            border
+            border-zinc-800
+            shadow-2xl
+          "
+        >
+          {/* Badge */}
+          {/* <div className="absolute top-4 left-4 z-10 backdrop-blur-md bg-black/40 border border-zinc-700 px-3 py-2 rounded-full">
+            <p className="text-xs text-white">
+              Featured Project
+            </p>
+          </div> */}
+
           <video
             src={video1}
-            className="w-full h-full object-cover rounded-lg shadow-2xl"
             autoPlay
             muted
             loop
+            playsInline
             onLoadedData={onVideoLoad}
+            className="w-full h-full object-cover"
           />
+
+          {/* Bottom Info */}
+          {/* <div className="absolute bottom-4 left-4 backdrop-blur-md bg-black/40 border border-zinc-700 px-4 py-2 rounded-xl">
+            <p className="text-sm text-white">
+              React • Node • MongoDB • AWS
+            </p>
+          </div> */}
         </motion.div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        animate={{
+          y: [0, 10, 0],
+        }}
+        transition={{
+          repeat: Infinity,
+          duration: 1.5,
+        }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      >
+        <div className="w-6 h-10 border border-zinc-600 rounded-full flex justify-center">
+          <div className="w-1 h-2 bg-white rounded-full mt-2" />
+        </div>
       </motion.div>
-    </div>
+    </section>
   );
 };
 

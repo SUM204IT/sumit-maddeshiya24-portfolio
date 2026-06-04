@@ -14,7 +14,7 @@ const Works = () => {
       id: 1,
       name: "Bankify",
       description:"A full-stack banking platform supporting account management, deposits, withdrawals, fund transfers, and transaction tracking. ",
-      tech: "ReactJs, NodeJs, MongoDb, ExpressJs, SocketIo, Gsap",
+      tech: "ReactJs, NodeJs, MongoDb, ExpressJs",
       image: Bankify,
       web: "https://bank-transaction-system-nu.vercel.app/",
       git: "https://github.com/SUM204IT/Bank-Transaction-system",
