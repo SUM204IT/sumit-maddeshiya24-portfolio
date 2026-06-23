@@ -59,7 +59,7 @@ const Nav = () => {
       {/* Resume */}
       <a
             className="border-b-2 border-white cursor-pointer"
-            href="https://drive.google.com/file/d/1Ovx5A3LuNnosiSr4D9lUjiWM9N9f8q0l/view?usp=drive_link"
+            // href="https://drive.google.com/file/d/1Ovx5A3LuNnosiSr4D9lUjiWM9N9f8q0l/view?usp=drive_link"
             target="_blank" >
             Resume
           </a>
