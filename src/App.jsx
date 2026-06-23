@@ -7,6 +7,7 @@ import Nav from "./components/Nav";
 import Skills from "./components/Skills";
 import Works from "./components/Works";
 import Footer from "./components/Footer";
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const [videosLoaded, setVideosLoaded] = useState(0);
@@ -28,6 +29,7 @@ function App() {
       <Skills />
       <Contacts />
       <Footer />
+      <Analytics/>
     </div>
     </>
   );
